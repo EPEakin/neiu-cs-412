@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f6a458c7-c023-41ce-b5a0-465a355f979d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hWrOFbzG93VSMybF1uNn7xkQL5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.18.3" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.12.56" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="server.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.server.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6a458c7-c023-41ce-b5a0-465a355f979d" name="Default Changelist" comment="" />
+      <created>1600137654412</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600137654412</updated>
+      <workItem from="1600137655444" duration="35142000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="116" y="105" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600144589550">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="116" y="105" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1600144589550" />
+    <state x="390" y="197" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600317578220">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="390" y="197" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1600317578220" />
+    <state x="440" y="364" key="Github.ShareDialog" timestamp="1600318490369">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="440" y="364" key="Github.ShareDialog/0.23.1440.877@0.23.1440.877" timestamp="1600318490369" />
+    <state width="1113" height="217" key="GridCell.Tab.0.bottom" timestamp="1600317606185">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1113" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1600317606185" />
+    <state width="1113" height="217" key="GridCell.Tab.0.center" timestamp="1600317606184">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1113" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1600317606184" />
+    <state width="1113" height="217" key="GridCell.Tab.0.left" timestamp="1600317606183">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1113" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1600317606183" />
+    <state width="1113" height="217" key="GridCell.Tab.0.right" timestamp="1600317606184">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1113" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1600317606184" />
+    <state x="153" y="80" key="SettingsEditor" timestamp="1600300207816">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="153" y="80" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1600300207816" />
+    <state x="201" y="74" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600312144277">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="201" y="74" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877@0.23.1440.877" timestamp="1600312144276" />
+    <state x="317" y="203" width="670" height="676" key="search.everywhere.popup" timestamp="1600282821627">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="317" y="203" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1600282821627" />
+  </component>
+</project>
