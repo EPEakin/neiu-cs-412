@@ -18,7 +18,7 @@ exports.dateCheck = function (day, month, year) {
 
 }
 },{}],2:[function(require,module,exports){
-opp = require('./opportunity')
+opp = require('../opportunity')
 
 exports.oppCheck =  function () {
     let foo = opp.opportunity()
@@ -41,7 +41,7 @@ exports.oppCheck =  function () {
 
 
 },{"./opportunity":3}],3:[function(require,module,exports){
-checkDate = require('./dateCheck')
+checkDate = require('../dateCheck')
 
 exports.opportunity =  function () {
 
