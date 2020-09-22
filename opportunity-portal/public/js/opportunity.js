@@ -1,4 +1,5 @@
 checkDate = require('./dateCheck')
+moment = require('moment')
 
 exports.opportunity =  function () {
 
@@ -10,6 +11,7 @@ exports.opportunity =  function () {
             this.deadlineDay = deadlineDay;
             this.deadlineMonth = deadlineMonth;
             this.deadlineYear = deadlineYear;
+            this.deadline
 
             function checkType(value, type){
                 if (!(typeof value === type)) {
@@ -23,11 +25,13 @@ exports.opportunity =  function () {
             checkType(this.deadlineMonth, 'number')
             checkType(this.deadlineYear, 'number')
 
-            this.expired = checkDate.dateCheck(this.deadlineDay, this.deadlineMonth, this.deadlineYear)
-            console.log(this.expired)
+            this.deadline = moment([this.deadlineYear, this.deadlineMonth-1, this.deadlineDay])
+
+            console.log("in opportunity: " + this.deadline.format("MM-DD-YYYY"))
+            this.expired = checkDate.dateCheck(this.deadline.format())
+            console.log("expiration date: " + this.expired)
 
         }
-
 
         get idGet(){
             return this.id;
@@ -55,7 +59,7 @@ exports.opportunity =  function () {
     }
 
 
-    let s = new Opp(12, 'STEM Opp', 21, 9, 2020)
+    let s = new Opp(12, 'STEM Opp', 22, 11, 2020)
 
     return s
 }

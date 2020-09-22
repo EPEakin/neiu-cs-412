@@ -1,12 +1,18 @@
-exports.dateCheck = function (day, month, year) {
-    console.log(day + " " + month + " " + year)
-    let today = new Date()
-    let deadline = new Date;
-    deadline.setDate(day)
-    deadline.setMonth(month-1)
-    deadline.setFullYear(year)
 
-    if ( today < deadline ) {
+exports.dateCheck = function (deadline) {
+    let today = moment()
+    let deadline1 = moment(deadline)
+    console.log("from moment: " + today.format("MM DD YYYY") + "\n deadline1: " + deadline1.format("MM DD YYYY"))
+
+    let days = deadline1.diff(today, 'days')
+
+    if ( days > 0 ) {
+        console.log(`The deadline is ${days} days away!`)
+        return true;
+    }
+    else if(days === 0)
+    {
+        console.log(`The application is due today!`)
         return true;
     }
     else{
