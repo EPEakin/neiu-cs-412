@@ -1,5 +1,6 @@
 checkDate = require('./dateCheck')
 moment = require('moment')
+let EventEmitter = require('events').EventEmitter
 
 exports.opportunity =  function () {
 
@@ -28,7 +29,21 @@ exports.opportunity =  function () {
             this.deadline = moment([this.deadlineYear, this.deadlineMonth-1, this.deadlineDay])
 
             console.log("in opportunity: " + this.deadline.format("MM-DD-YYYY"))
-            this.expired = checkDate.dateCheck(this.deadline.format())
+
+            let emitter = new EventEmitter()
+            this.expired = checkDate.dateCheck(this.deadline.format(), emitter)
+
+
+
+            for(let i = 0; i < 10; i++)
+            {
+                console.log(`I am about to emit: ${i}` )
+                emitter.emit('foo', 'signal num: ', i)
+
+                console.log(`I have emitted: ${i}` )
+
+            }
+
             console.log("expiration date: " + this.expired)
 
         }
@@ -60,6 +75,9 @@ exports.opportunity =  function () {
 
 
     let s = new Opp(12, 'STEM Opp', 22, 11, 2020)
+
+
+
 
     return s
 }

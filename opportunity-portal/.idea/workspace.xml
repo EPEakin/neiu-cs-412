@@ -60,6 +60,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.3" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.12.56" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -92,7 +93,10 @@
       <updated>1600137654412</updated>
       <workItem from="1600137655444" duration="35142000" />
       <workItem from="1600739325586" duration="248000" />
-      <workItem from="1600740215634" duration="7911000" />
+      <workItem from="1600740215634" duration="9459000" />
+      <workItem from="1600926517507" duration="1030000" />
+      <workItem from="1601446816402" duration="512000" />
+      <workItem from="1602099367417" duration="4144000" />
     </task>
     <servers />
   </component>
@@ -124,22 +128,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="440" y="364" key="Github.ShareDialog/0.23.1440.877@0.23.1440.877" timestamp="1600318490369" />
-    <state width="1113" height="217" key="GridCell.Tab.0.bottom" timestamp="1600783666363">
+    <state width="1113" height="217" key="GridCell.Tab.0.bottom" timestamp="1602112805747">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1113" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1600783666363" />
-    <state width="1113" height="217" key="GridCell.Tab.0.center" timestamp="1600783666361">
+    <state width="1113" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602112805747" />
+    <state width="1113" height="217" key="GridCell.Tab.0.center" timestamp="1602112805746">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1113" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1600783666361" />
-    <state width="1113" height="217" key="GridCell.Tab.0.left" timestamp="1600783666360">
+    <state width="1113" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1602112805746" />
+    <state width="1113" height="217" key="GridCell.Tab.0.left" timestamp="1602112805745">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1113" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1600783666360" />
-    <state width="1113" height="217" key="GridCell.Tab.0.right" timestamp="1600783666362">
+    <state width="1113" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1602112805745" />
+    <state width="1113" height="217" key="GridCell.Tab.0.right" timestamp="1602112805746">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1113" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1600783666362" />
+    <state width="1113" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1602112805746" />
     <state x="153" y="80" key="SettingsEditor" timestamp="1600300207816">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
