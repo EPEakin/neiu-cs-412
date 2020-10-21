@@ -1,48 +1,44 @@
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
+const httpStatus = require('http-status-codes')
+const mime = require('mime-types')
+
+const PORT = 3000
+const routeMap = {
+    '/': './public/views/index.html',
+    '/about': './public/views/about.html'
+}
 
 let app = http.createServer((request, response) => {
     console.log('Request starting...', request.url)
+   // console.log('Request method:', request.method)
+   // console.log('Request header:', request.headers)
 
-    let filePath = '.' + request.url
-    if (filePath === './') {
-        filePath = './public/views/index.html'
+    let filePath = routeMap[request.url]
+    if(!filePath){
+        filePath = '.' + request.url
     }
 
     if(fs.existsSync(filePath)){
         fs.readFile(filePath, function (error, content) {
             if (error) {
-                response.writeHead(500)
+                response.writeHead(httpStatus.INTERNAL_SERVER_ERROR)
                 response.write('500: error reading file!')
                 response.end()
             } else {
                 //set a response type of html page for the result
-                if(path.extname(filePath) === '.html') {
-                    response.setHeader('Content-Type', 'text/html')
-                    response.end(content, 'utf-8')
-                }
-                else if(path.extname(filePath) === '.jpeg')
-                {
-                    response.setHeader('Content-Type', 'image/jpeg')
-                    response.end(content)
-                }
-                else if(path.extname(filePath) === '.js')
-                {
-                    response.setHeader('Content-Type', 'text/javascript')
-                    response.end(content)
-                }
-                else if(path.extname(filePath) === '.css')
-                {
-                    response.setHeader('Content-Type', 'text/css')
-                    response.end(content)
-                }
+                let contentType = mime.lookup(filePath)
+                response.writeHead(httpStatus.OK, {'Content-Type': contentType});
+                response.write(content)
+                response.end();
+
 
             }
         })
     }
     else{
-        response.writeHead(404)
+        response.writeHead(httpStatus.NOT_FOUND)
         response.write('404 error!')
         response.end()
     }
@@ -53,4 +49,4 @@ let app = http.createServer((request, response) => {
 //start the server on port 3000
 app.listen(3000)
 
-console.log('Server is running at 127.0.0.1:3001/ or http://localhost:3000')
+console.log(`Server is running at 127.0.0.1:3001/ or http://localhost:${PORT}`)

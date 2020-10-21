@@ -1,4 +1,4 @@
-opp = require('./opportunity')
+const opp = require('./opportunity')
 
 exports.oppCheck =  function () {
     let foo = opp.opportunity()

@@ -1,5 +1,8 @@
-checkDate = require('./dateCheck')
+const checkDate = require('./dateCheck')
+const api = require('./api')
 moment = require('moment')
+
+
 let EventEmitter = require('events').EventEmitter
 
 exports.opportunity =  function () {
@@ -32,8 +35,6 @@ exports.opportunity =  function () {
 
             let emitter = new EventEmitter()
             this.expired = checkDate.dateCheck(this.deadline.format(), emitter)
-
-
 
             for(let i = 0; i < 10; i++)
             {
@@ -75,7 +76,6 @@ exports.opportunity =  function () {
 
 
     let s = new Opp(12, 'STEM Opp', 22, 11, 2020)
-
 
 
 

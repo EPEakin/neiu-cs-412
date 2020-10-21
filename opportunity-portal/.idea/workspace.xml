@@ -23,13 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6a458c7-c023-41ce-b5a0-465a355f979d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/views/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/opp-portal-css.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/opp-portal-css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/lib/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/lib/bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/lib/dateCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dateCheck.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/lib/oppCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/oppCheck.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/lib/opportunity.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/opportunity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -96,7 +100,9 @@
       <workItem from="1600740215634" duration="9459000" />
       <workItem from="1600926517507" duration="1030000" />
       <workItem from="1601446816402" duration="512000" />
-      <workItem from="1602099367417" duration="4144000" />
+      <workItem from="1602099367417" duration="12467000" />
+      <workItem from="1602716122186" duration="5046000" />
+      <workItem from="1603114235748" duration="6997000" />
     </task>
     <servers />
   </component>
@@ -128,22 +134,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="440" y="364" key="Github.ShareDialog/0.23.1440.877@0.23.1440.877" timestamp="1600318490369" />
-    <state width="1113" height="217" key="GridCell.Tab.0.bottom" timestamp="1602112805747">
+    <state width="1253" height="240" key="GridCell.Tab.0.bottom" timestamp="1603265368909">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1113" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1602112805747" />
-    <state width="1113" height="217" key="GridCell.Tab.0.center" timestamp="1602112805746">
+    <state width="1253" height="240" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1603265368909" />
+    <state width="1253" height="240" key="GridCell.Tab.0.center" timestamp="1603265368908">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1113" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1602112805746" />
-    <state width="1113" height="217" key="GridCell.Tab.0.left" timestamp="1602112805745">
+    <state width="1253" height="240" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1603265368908" />
+    <state width="1253" height="240" key="GridCell.Tab.0.left" timestamp="1603265368908">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1113" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1602112805745" />
-    <state width="1113" height="217" key="GridCell.Tab.0.right" timestamp="1602112805746">
+    <state width="1253" height="240" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1603265368908" />
+    <state width="1253" height="240" key="GridCell.Tab.0.right" timestamp="1603265368909">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1113" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1602112805746" />
+    <state width="1253" height="240" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1603265368909" />
     <state x="153" y="80" key="SettingsEditor" timestamp="1600300207816">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -152,6 +158,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="201" y="74" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877@0.23.1440.877" timestamp="1600312144276" />
+    <state x="405" y="107" width="613" height="711" key="find.popup" timestamp="1602848496736">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="405" y="107" width="613" height="711" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1602848496736" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1600748720883">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
