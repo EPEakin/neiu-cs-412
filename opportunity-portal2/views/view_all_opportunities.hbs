@@ -1,0 +1,15 @@
+<img class="backpack" src= "../images/backpack.jpeg" alt="backpack" width="100">
+
+{{#if oppExists}}
+    <h3> Number of opportunities available: {{numCurrentOpps}}  </h3>
+{{else}}
+    <h3> There are no opportunities at this time. Please check again soon </h3>
+{{/if}}
+
+
+
+<ul>
+    {{#each oppList}}
+        <li>{{oppKey}}: <a href="/opportunities/view?key={{oppKey}}">{{oppTitle}}</a> <em>(Date Due: {{oppDateDue}})</em> </li>
+    {{/each}}
+</ul>

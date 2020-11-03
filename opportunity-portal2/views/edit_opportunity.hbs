@@ -1,0 +1,20 @@
+<img class="backpack" src= "../images/backpack.jpeg" alt="backpack" width="100">
+
+<form method="post" action="/opportunities/save">
+    <input type="hidden" name="saveMethod"
+           value="{{#if isCreate}}create{{else}}update{{/if}}"/>
+    <p>
+        Key: {{oppKey}}
+        <input type="hidden" name="oppKey" value="{{oppKey}}"/>
+    </p>
+    <p>
+        Title: <input type="text" name="title" value="{{oppTitle}}"/> <br/>
+    </p>
+    <p>
+        Date: <input type="date" name="dateDue" value="{{oppDateDue}}" placeholder="mm-dd-yyyy"
+                     min="2020-11-01" max="2030-11-01" /> <br/>
+    </p>
+    <textarea rows=5 cols=40 name="description"> {{oppDescription}} </textarea> <br/>
+
+    <input type="submit" value="Submit" />
+</form>

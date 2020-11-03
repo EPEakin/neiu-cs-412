@@ -5,10 +5,15 @@ const cookieParser = require('cookie-parser')
 const http = require('http')
 const hbs = require('express-handlebars')
 
+const InMemoryOppStore = require('./models/opportunities-memory').InMemoryOppStore
+let oppStore = new InMemoryOppStore()
+exports.oppStore = oppStore
+
 const appsupport = require('./appsupport')
 const indexRouter = require('./routes/index')
+const oppRouter = require('./routes/opportunities')
 
-const app = express()
+const app = express();
 exports.app = app
 
 // view engine setup
@@ -29,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 //Router function lists
 app.use('/', indexRouter)
+app.use('/opportunities', oppRouter)
 
 //error handlers
 app.use(appsupport.basicErrorHandler)
