@@ -1,9 +1,24 @@
-<img class="backpack" src= "../images/backpack.jpeg" alt="backpack" width="100">
+<img class="backpack" src= "../assets/images/backpack.jpeg" alt="backpack" width="100">
 
 
-<h3>Opportunity: {{oppTitle}}</h3>
-<p> Key: {{oppKey}} </p>
-<p> <strong>Date Due: </strong>{{oppDateDue}}</p>
-<p><strong>Description: </strong>{{oppDescription}}</p>
+<div class="container">
+    <h3>{{oppTitle}}</h3>
+    <p class="lead text-center">
+        {{oppDescription}}
+    </p>
+    <p class="text-center">
+        <strong>Due: </strong>{{oppDateDue}}
+    </p>
+    <p class="text-center">
+        <strong>Type of Opportunity: </strong>{{oppType}}
+    </p>
+    <p class="text-center">
+        <strong>Virtual or In-person: </strong>{{oppLoc}}
+    </p>
+    <p class="text-center">
+        <strong>Submitted by: </strong>{{oppSubmitter}}
+    </p>
+
+</div>
 
 {{>view_footer}}

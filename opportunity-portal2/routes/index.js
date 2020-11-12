@@ -3,9 +3,11 @@ const router = express.Router();
 const oppStore = require('../app').oppStore
 
 let options = {
-  title: 'STEM Opportunity Portal!!',
+  title: 'STEM Opportunity Portal!',
+  pageTitle: 'Welcome to the STEM Opportunity Portal!',
   layout: 'default',
-  styles: ['/stylesheets/style.css', '/stylesheets/old-style.css']
+  isHomeActive: "active"
+  //styles: ['/stylesheets/style.css', '/stylesheets/old-style.css']
 }
 
 

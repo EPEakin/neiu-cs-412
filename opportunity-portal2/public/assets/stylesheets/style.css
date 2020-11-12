@@ -1,0 +1,53 @@
+body {
+
+  font: 14px Lato, Helvetica, Arial, sans-serif;
+  background-color: lightblue;
+}
+
+.navbar {
+  text-align: center;
+}
+
+a {
+  color: mediumblue;
+}
+
+h1 {
+  color: navy;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h2, h3 {
+  color: navy;
+  text-align: center;
+}
+.backpack {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar-text{
+  font-size: x-large;
+}
+
+#navbarSupportedContent{
+  font-size: large;
+}
+
+.navbar-toggler {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.btn{
+  background-color: darkblue;
+  color: white;
+
+}
+
+.form-group{
+  margin-bottom: auto;
+}

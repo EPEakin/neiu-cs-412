@@ -1,20 +1,177 @@
-<img class="backpack" src= "../images/backpack.jpeg" alt="backpack" width="100">
+<div class="container-fluid">
+    <div class="mx-auto pb-4">
+        <img class="backpack" src= "../assets/images/backpack.jpeg" alt="backpack" width="100">
+
+    </div>
+</div>
+
 
 <form method="post" action="/opportunities/save">
     <input type="hidden" name="saveMethod"
            value="{{#if isCreate}}create{{else}}update{{/if}}"/>
-    <p>
-        Key: {{oppKey}}
-        <input type="hidden" name="oppKey" value="{{oppKey}}"/>
-    </p>
-    <p>
-        Title: <input type="text" name="title" value="{{oppTitle}}"/> <br/>
-    </p>
-    <p>
-        Date: <input type="date" name="dateDue" value="{{oppDateDue}}" placeholder="mm-dd-yyyy"
-                     min="2020-11-01" max="2030-11-01" /> <br/>
-    </p>
-    <textarea rows=5 cols=40 name="description"> {{oppDescription}} </textarea> <br/>
+    <input type="hidden" name="oppKey" value="{{oppKey}}"/>
 
-    <input type="submit" value="Submit" />
+    <div class="container-fluid">
+        <div class="form-group">
+            <label class="col-form-label font-weight-bold pb-0" for="title">Title: </label>
+            <input class="form-control" type="text" name="title" value="{{oppTitle}}"/> <br/>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label font-weight-bold pb-0" for="submitter">Submitter Name: </label>
+            <input class="form-control" type="text" name="submitter" value="{{oppSubmitter}}"/> <br/>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label font-weight-bold" for="dateDue">Date: </label>
+            <input type="date" name="dateDue" value="{{oppDateDue}}" placeholder="mm-dd-yyyy"
+                   min="2020-11-01" max="2030-11-01" /> <br/>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label font-weight-bold pt-2 pb-0" for="description"> Description: </label>
+            <textarea class="form-control" rows=5 name="description"> {{oppDescription}} </textarea> <br/>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label font-weight-bold pb-0" for="oppLoc"> Location: </label>
+            <div class="form-check pt-0" >
+                <input class="form-check-input" type="checkbox" value={{oppLoc}} name="oppLoc">
+                <label class="form-check-label" for="oppLoc">
+                    Virtual
+                </label>
+            </div>
+            <div class="form-check pb-2" >
+                <input class="form-check-input" type="checkbox" value={{oppLoc}} name="oppLoc">
+                <label class="form-check-label" for="oppLoc">
+                    In-person
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label font-weight-bold mb-0 pb-0" for="oppType"> Type: </label>
+            <div class="font-weight-bold">
+                <select class="form-control" name="oppType" value="{{oppType}}">
+                    <option>Internship</option>
+                    <option>Volunteer Opportunity</option>
+                    <option>Event</option>
+                    <option>Scholarship</option>
+                    <option>Club or Ongoing Activity</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center pt-3">
+            <input class="col-2 btn btn-primary" type="submit" value="Submit" />
+        </div>
+    </div>
 </form>
+ <!--
+
+
+
+
+
+
+            <div class="col-2 text-right font-weight-bold">
+                <label class="col-form-label" for="oppType"> Type: </label>
+            </div>
+            <div class="col-9">
+                <input class="form-control col-11" type="text"  name="oppType" value="{{oppType}}"/> <br/>
+            </div>
+
+            <div class="col-2 text-right font-weight-bold">
+                <label class="col-form-label" for="oppLoc"> Location: </label>
+            </div>
+            <div class="col-9">
+                <input class="form-control col-11" type="text" name="oppLoc" value="{{oppLoc}}"/> <br/>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
+            <input class="col-2 btn btn-primary" type="submit" value="Submit" />
+        </div>
+    </div>
+</form>
+-->
+
+<!--
+
+
+
+
+
+        <div class="form-group">
+            <label class="col-form-label font-weight-bold mb-0 pb-0" for="oppType"> Type: </label>
+            <div class="font-weight-bold">
+                <select class="form-control" name="oppType">
+                    <option>Internship</option>
+                    <option>Volunteer Opportunity</option>
+                    <option>Event</option>
+                    <option>Scholarship</option>
+                    <option>Club or Ongoing Activity</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center pt-3">
+            <input class="col-2 btn btn-primary" type="submit" value="Submit" />
+        </div>
+
+    -->
+
+
+        <!--OLD
+        <div class="form-group row justify-content-center">
+            <div class="col-2 text-right font-weight-bold">
+                <label class="col-form-label" for="title">Title: </label>
+            </div>
+            <div class="col-9">
+                <input class="form-control col-11" type="text" name="title" value="{{oppTitle}}"/> <br/>
+            </div>
+
+            <div class="col-2 text-right font-weight-bold">
+                <label class="col-form-label" for="submitter">Submitter Name: </label>
+            </div>
+            <div class="col-9">
+                <input class="form-control col-11" type="text" name="submitter" value="{{oppSubmitter}}"/> <br/>
+            </div>
+
+            <div class="col-2 text-right font-weight-bold">
+                <label class="col-form-label" for="date">Date: </label>
+            </div>
+            <div class="col-9">
+               <input type="date" name="dateDue" value="{{oppDateDue}}" placeholder="mm-dd-yyyy"
+                       min="2020-11-01" max="2030-11-01" /> <br/>
+            </div>
+
+            <div class="col-2 text-right font-weight-bold">
+                <label class="col-form-label" for="description"> Description</label>
+            </div>
+
+            <div class="col-9">
+                <textarea class="col-11 form-control" rows=5 name="description"> {{oppDescription}} </textarea> <br/>
+            </div>
+
+            <div class="col-2 text-right font-weight-bold">
+                <label class="col-form-label" for="oppType"> Type: </label>
+            </div>
+            <div class="col-9">
+                <input class="form-control col-11" type="text"  name="oppType" value="{{oppType}}"/> <br/>
+            </div>
+
+            <div class="col-2 text-right font-weight-bold">
+                <label class="col-form-label" for="oppLoc"> Location: </label>
+            </div>
+            <div class="col-9">
+                <input class="form-control col-11" type="text" name="oppLoc" value="{{oppLoc}}"/> <br/>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-center">
+            <input class="col-2 btn btn-primary" type="submit" value="Submit" />
+        </div>
+    </div>
+</form>
+-->

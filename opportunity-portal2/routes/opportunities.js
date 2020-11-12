@@ -3,14 +3,17 @@ const router = express.Router()
 let oppStore = require('../app').oppStore
 
 
+
 router.get('/add', async (req, res, next) => {
     try{
         res.render('add_opportunity', {
             isCreate: true,
             layout: 'default',
             title: 'Add an opportunity',
+            pageTitle: 'Add a new opportunity here!',
             oppKey: await oppStore.count(),
-            styles: ['/stylesheets/style.css', '/stylesheets/old-style.css']
+            isAddActive: "active"
+
         })
     } catch(err) {
         next(err)
@@ -18,15 +21,16 @@ router.get('/add', async (req, res, next) => {
 })
 
 
-
 router.post('/save', async (req, res, next) => {
     try{
         let opp;
 
         if(req.body.saveMethod === 'create')
-            opp = await oppStore.create(req.body.oppKey, req.body.title, req.body.description, req.body.dateDue)
+            opp = await oppStore.create(req.body.oppKey, req.body.title, req.body.description, req.body.dateDue,
+                req.body.submitter, req.body.oppType, req.body.oppLoc)
         else
-            opp = await oppStore.update(req.body.oppKey, req.body.title, req.body.description, req.body.dateDue)
+            opp = await oppStore.update(req.body.oppKey, req.body.title, req.body.description, req.body.dateDue,
+                req.body.submitter, req.body.oppType, req.body.oppLoc)
 
         res.redirect('/opportunities/view?key=' + req.body.oppKey)
     }catch(err){
@@ -45,6 +49,8 @@ router.post('/destroy', async (req, res, next) => {
     }
 })
 
+
+
 router.get('/delete', async (req, res, next) => {
     try{
         let opp = await oppStore.read(req.query.key)
@@ -55,25 +61,28 @@ router.get('/delete', async (req, res, next) => {
             oppDescription: opp.description,
             oppDateDue: opp.dateDue,
             layout: 'default',
-            styles: ['/stylesheets/style.css', '/stylesheets/old-style.css']
+
         })
     }catch(err){
         next(err)
     }
 })
 
-
 router.get('/view', async (req, res, next) => {
     try{
         let opp = await oppStore.read(req.query.key)
         res.render('view_opportunity', {
             title: "View Opportunity",
+            pageTitle: "Opportunity Details",
+            oppSubmitter: opp.submitter,
             oppTitle: opp.title,
             oppKey: opp.key,
             oppDescription: opp.description,
             oppDateDue: opp.dateDue,
+            oppType: opp.oppType,
+            oppLoc: opp.oppLoc,
             layout: 'default',
-            styles: ['/stylesheets/style.css', '/stylesheets/old-style.css']
+
         })
     }catch(err){
         next(err)
@@ -92,11 +101,12 @@ router.get('/view_all', async function(req, res, next) {
         if(numCurrentOpps > 0) {oppExists = true}
         res.render('view_all_opportunities', {
             title: 'All Current Opportunities',
+            pageTitle: 'Here are the current STEM Opportunities',
             numCurrentOpps: numCurrentOpps,
             oppExists: oppExists,
             layout: 'default',
-            styles: ['/stylesheets/style.css', '/stylesheets/old-style.css'],
-            oppList: extractOppsToLiteral(allOpps)
+            oppList: extractOppsToLiteral(allOpps),
+            isViewAllActive: "active"
         })
     } catch(err){
         next(err)
@@ -108,15 +118,13 @@ function extractOppsToLiteral(allOpps){
         return {
             oppKey: opp.key,
             oppTitle: opp.title,
-            oppDateDue: opp.dateDue
+            oppDateDue: opp.dateDue,
+            oppSubmitter: opp.submitter,
+            oppType: opp.oppType,
+            oppLoc: opp.oppLoc
         }
     })
 }
-
-
-
-
-
 
 router.get('/edit', async (req, res, next) => {
     try {
@@ -124,12 +132,18 @@ router.get('/edit', async (req, res, next) => {
         res.render('edit_opportunity', {
             isCreate: false,
             title: "Edit Opportunity",
+            pageTitle: "Edit this opportunity",
             oppTitle: opp.title,
             oppKey: opp.key,
             oppDescription: opp.description,
             oppDateDue: opp.dateDue,
-            layout: 'default',
-            styles: ['/stylesheets/style.css', '/stylesheets/old-style.css']
+            oppSubmitter: opp.submitter,
+            oppType: opp.oppType,
+            oppLoc: opp.oppLoc,
+            layout: 'default'
+
+
+
         })
     }catch(err) {
         next(err)

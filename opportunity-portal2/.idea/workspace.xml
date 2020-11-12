@@ -2143,12 +2143,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/views" />
-      <recent name="$PROJECT_DIR$/views/layouts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/assets" />
+      <recent name="$PROJECT_DIR$/views" />
+      <recent name="$PROJECT_DIR$/views/layouts" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start-watch">
@@ -2180,6 +2181,9 @@
       <updated>1603319209864</updated>
       <workItem from="1603319210997" duration="10752000" />
       <workItem from="1603857279117" duration="41763000" />
+      <workItem from="1604507663688" duration="16574000" />
+      <workItem from="1604986622140" duration="37945000" />
+      <workItem from="1605143655954" duration="42000" />
     </task>
     <servers />
   </component>
@@ -2196,6 +2200,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603337659342">
@@ -2206,30 +2211,34 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="455" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1604426859083" />
-    <state width="1253" height="217" key="GridCell.Tab.0.bottom" timestamp="1604426651849">
+    <state width="1253" height="217" key="GridCell.Tab.0.bottom" timestamp="1605143701922">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1253" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1604426651849" />
-    <state width="1253" height="217" key="GridCell.Tab.0.center" timestamp="1604426651847">
+    <state width="1253" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605143701922" />
+    <state width="1253" height="217" key="GridCell.Tab.0.center" timestamp="1605143701919">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1253" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1604426651847" />
-    <state width="1253" height="217" key="GridCell.Tab.0.left" timestamp="1604426651846">
+    <state width="1253" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605143701919" />
+    <state width="1253" height="217" key="GridCell.Tab.0.left" timestamp="1605143701918">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1253" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1604426651846" />
-    <state width="1253" height="217" key="GridCell.Tab.0.right" timestamp="1604426651848">
+    <state width="1253" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605143701918" />
+    <state width="1253" height="217" key="GridCell.Tab.0.right" timestamp="1605143701920">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1253" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1604426651848" />
-    <state x="291" y="59" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604421137886">
+    <state width="1253" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605143701920" />
+    <state x="291" y="59" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605121277331">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="291" y="59" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877@0.23.1440.877" timestamp="1604421137886" />
+    <state x="291" y="59" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877@0.23.1440.877" timestamp="1605121277331" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1604426158200">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.23.1440.877@0.23.1440.877" timestamp="1604426158200" />
+    <state x="385" y="210" key="run.anything.popup" timestamp="1604987344756">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1604987344756" />
     <state x="382" y="203" width="670" height="676" key="search.everywhere.popup" timestamp="1604415687597">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

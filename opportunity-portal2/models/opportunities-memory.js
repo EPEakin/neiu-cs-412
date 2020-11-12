@@ -6,15 +6,18 @@ exports.InMemoryOppStore = class InMemoryOppStore extends AbstractOppStore {
     async close() {}
 
 
-    async update(key, title, description, dateDue) {
+    async update(key, title, description, dateDue, submitter, oppType, oppLoc) {
         opps[key].title = title
         opps[key].description = description
         opps[key].dateDue = dateDue
+        opps[key].submitter = submitter
+        opps[key].oppType = oppType
+        opps[key].oppLoc = oppLoc
         return opps[key]
     }
 
-    async create(key, title, description, dateDue){
-        opps[key] = new Opp(key, title, description, dateDue)
+    async create(key, title, description, dateDue, submitter, oppType, oppLoc){
+        opps[key] = new Opp(key, title, description, dateDue, submitter, oppType, oppLoc)
         return opps[key]
     }
 
