@@ -27,6 +27,7 @@
       <change afterPath="$PROJECT_DIR$/.idea/opportunity-portal2.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/models/opportunities-memory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/opportunities-mongoose.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/models/opportunities.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/routes/opportunities.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/add_opportunity.hbs" afterDir="false" />
@@ -2143,13 +2144,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/assets" />
       <recent name="$PROJECT_DIR$/views" />
       <recent name="$PROJECT_DIR$/views/layouts" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start-watch">
@@ -2163,7 +2164,9 @@
         <script value="start-watch" />
       </scripts>
       <node-interpreter value="project" />
-      <envs />
+      <envs>
+        <env name="DB_URL" value="mongodb+srv://admin:MsKOWFPW64ewMGWK@stem-opportunity-portal.che3a.mongodb.net/STEM-opportunity-portal?retryWrites=true&amp;w=majority" />
+      </envs>
       <method v="2" />
     </configuration>
     <list>
@@ -2182,8 +2185,9 @@
       <workItem from="1603319210997" duration="10752000" />
       <workItem from="1603857279117" duration="41763000" />
       <workItem from="1604507663688" duration="16574000" />
-      <workItem from="1604986622140" duration="37945000" />
-      <workItem from="1605143655954" duration="42000" />
+      <workItem from="1604986622140" duration="38072000" />
+      <workItem from="1605144401906" duration="6846000" />
+      <workItem from="1605739589438" duration="18676000" />
     </task>
     <servers />
   </component>
@@ -2203,30 +2207,30 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603337659342">
+    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605740723608">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1603337659342" />
+    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1605740723608" />
     <state x="455" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604426859083">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="455" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1604426859083" />
-    <state width="1253" height="217" key="GridCell.Tab.0.bottom" timestamp="1605143701922">
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom" timestamp="1605767673795">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1253" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605143701922" />
-    <state width="1253" height="217" key="GridCell.Tab.0.center" timestamp="1605143701919">
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605767673795" />
+    <state width="1398" height="217" key="GridCell.Tab.0.center" timestamp="1605767673793">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1253" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605143701919" />
-    <state width="1253" height="217" key="GridCell.Tab.0.left" timestamp="1605143701918">
+    <state width="1398" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605767673793" />
+    <state width="1398" height="217" key="GridCell.Tab.0.left" timestamp="1605767673792">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1253" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605143701918" />
-    <state width="1253" height="217" key="GridCell.Tab.0.right" timestamp="1605143701920">
+    <state width="1398" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605767673792" />
+    <state width="1398" height="217" key="GridCell.Tab.0.right" timestamp="1605767673794">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1253" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605143701920" />
+    <state width="1398" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605767673794" />
     <state x="291" y="59" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605121277331">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

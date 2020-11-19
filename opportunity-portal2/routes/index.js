@@ -13,11 +13,6 @@ let options = {
 
 router.get('/', async function(req, res, next) {
   try{
-    let keyList = await oppStore.keyList()
-    let keyPromises = keyList.map(key => {
-      return oppStore.read(key)
-    })
-    let allOpps = await Promise.all(keyPromises)
     res.render('index', options)
   } catch(err){
     next(err)

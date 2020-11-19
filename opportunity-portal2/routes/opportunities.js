@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 let oppStore = require('../app').oppStore
+let Opp = require('../models/opportunities').Opp
 
 
 
@@ -70,7 +71,9 @@ router.get('/delete', async (req, res, next) => {
 
 router.get('/view', async (req, res, next) => {
     try{
+        console.log('key:', req.query.key)
         let opp = await oppStore.read(req.query.key)
+        console.log('opp', opp)
         res.render('view_opportunity', {
             title: "View Opportunity",
             pageTitle: "Opportunity Details",
@@ -88,15 +91,11 @@ router.get('/view', async (req, res, next) => {
         next(err)
     }
 })
-
 router.get('/view_all', async function(req, res, next) {
     try{
-        let keyList = await oppStore.keyList()
-        let keyPromises = keyList.map(key => {
-            return oppStore.read(key)
-        })
-        let allOpps = await Promise.all(keyPromises)
-        let numCurrentOpps = await oppStore.count_filtered()
+        let allOpps = await oppStore.findAllOpps()
+
+        let numCurrentOpps = await oppStore.count()
         let oppExists = false
         if(numCurrentOpps > 0) {oppExists = true}
         res.render('view_all_opportunities', {
@@ -104,6 +103,29 @@ router.get('/view_all', async function(req, res, next) {
             pageTitle: 'Here are the current STEM Opportunities',
             numCurrentOpps: numCurrentOpps,
             oppExists: oppExists,
+            //oppExists: true,
+            layout: 'default',
+            oppList: allOpps,
+            isViewAllActive: "active"
+        })
+    } catch(err){
+        next(err)
+    }
+})
+/*router.get('/view_all', async function(req, res, next) {
+    try{
+        let allOpps = await Opp.find({})
+
+       // let numCurrentOpps = await oppStore.count_filtered()
+        //let oppExists = false
+        //if(numCurrentOpps > 0) {oppExists = true}
+        res.render('view_all_opportunities', {
+            title: 'All Current Opportunities',
+            pageTitle: 'Here are the current STEM Opportunities',
+            numCurrentOpps: 0,
+            //numCurrentOpps: numCurrentOpps,
+            //oppExists: oppExists,
+            oppExists: true,
             layout: 'default',
             oppList: extractOppsToLiteral(allOpps),
             isViewAllActive: "active"
@@ -111,7 +133,7 @@ router.get('/view_all', async function(req, res, next) {
     } catch(err){
         next(err)
     }
-})
+})*/
 
 function extractOppsToLiteral(allOpps){
     return allOpps.map(opp => {
@@ -128,7 +150,8 @@ function extractOppsToLiteral(allOpps){
 
 router.get('/edit', async (req, res, next) => {
     try {
-        let opp = await oppStore.read(req.query.key)
+        let opp = await oppStore.update(req.query.key)
+
         res.render('edit_opportunity', {
             isCreate: false,
             title: "Edit Opportunity",

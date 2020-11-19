@@ -4,9 +4,20 @@ const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const http = require('http')
 const hbs = require('express-handlebars')
+const mongoose = require('mongoose')
 
-const InMemoryOppStore = require('./models/opportunities-memory').InMemoryOppStore
-let oppStore = new InMemoryOppStore()
+mongoose.connect(process.env.DB_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true
+    }
+).catch(err => {
+    console.log(err)
+})
+
+
+const MongooseOppStore = require('./models/opportunities-mongoose').MongooseOppStore
+let oppStore = new MongooseOppStore()
 exports.oppStore = oppStore
 
 const appsupport = require('./appsupport')
