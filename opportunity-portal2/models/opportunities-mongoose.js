@@ -1,13 +1,14 @@
 let Opp = require('./opportunities').Opp
 let AbstractOppStore = require('./opportunities').AbstractOppStore
+const mongoose = require('mongoose')
 
 
 exports.MongooseOppStore = class MongooseOppStore extends AbstractOppStore {
 
     async create(key, title, description, dateDue, submitter, oppType, oppLoc){
-        let count = await Opp.countDocuments({})
+
         let opp = new Opp({
-            key: count,
+           // key: key,
             title: title,
             description: description,
             dateDue: dateDue,
@@ -15,7 +16,7 @@ exports.MongooseOppStore = class MongooseOppStore extends AbstractOppStore {
             oppType: oppType,
             oppLoc: oppLoc
         })
-        await opp.save()
+        opp = await opp.save()
         return opp
     }
 

@@ -7,7 +7,6 @@ let options = {
   pageTitle: 'Welcome to the STEM Opportunity Portal!',
   layout: 'default',
   isHomeActive: "active"
-  //styles: ['/stylesheets/style.css', '/stylesheets/old-style.css']
 }
 
 
@@ -19,4 +18,4 @@ router.get('/', async function(req, res, next) {
   }
 })
 
-module.exports = router;
+module.exports = router

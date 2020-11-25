@@ -51,3 +51,7 @@ h2, h3 {
 .form-group{
   margin-bottom: auto;
 }
+
+.modal-title{
+  text-align: left;
+}

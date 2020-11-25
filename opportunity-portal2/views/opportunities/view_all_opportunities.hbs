@@ -1,0 +1,23 @@
+<img class="backpack" src= "../assets/images/backpack.jpeg" alt="backpack" width="100">
+
+
+{{#if oppExists}}
+    <h3> Number of opportunities available: {{numCurrentOpps}}  </h3>
+{{else}}
+    <h3> There are no opportunities at this time. Please check again soon </h3>
+{{/if}}
+
+
+<div class="container-fluid">
+        <div class="row row-cols-5 justify-content-center">
+            <div class="col-5 col-md-5 btn-group-vertical" role="group">
+                {{#each oppList}}
+                    <a class="mt-3 btn btn-lg btn-block btn-outline-dark"
+                       href="/opportunities/view?id={{oppId}}">{{oppTitle}} </br>
+                    <em>Due: {{oppDateDue}}</em></a>
+
+                {{/each}}
+            </div>
+        </div>
+</div>
+

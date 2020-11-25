@@ -26,17 +26,23 @@
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/opportunity-portal2.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/opportunities-memory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/opportunities-controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/user-controller.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/models/opportunities-mongoose.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/models/opportunities.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/routes/opportunities.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/add_opportunity.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/delete_opportunity.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/edit_opportunity.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/opportunities/add_opportunity.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/opportunities/delete_opportunity.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/opportunities/edit_opportunity.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/opportunities/view_all_opportunities.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/opportunities/view_opportunity.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/user_messages.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/partials/view_footer.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/view_all_opportunities.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/view_opportunity.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/users/login.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/users/register.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../opportunity-portal/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../opportunity-portal/.idea/jsLibraryMappings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../opportunity-portal/.idea/modules.xml" beforeDir="false" />
@@ -2141,20 +2147,25 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/opportunities" />
       <recent name="$PROJECT_DIR$/public/assets" />
       <recent name="$PROJECT_DIR$/views" />
       <recent name="$PROJECT_DIR$/views/layouts" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images" />
-    </key>
   </component>
   <component name="RunManager" selected="npm.start-watch">
     <configuration name="app.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
+      <envs>
+        <env name="SECRET_CODE" value="'secret_password'" />
+      </envs>
       <method v="2" />
     </configuration>
     <configuration name="start-watch" type="js.build_tools.npm">
@@ -2165,6 +2176,7 @@
       </scripts>
       <node-interpreter value="project" />
       <envs>
+        <env name="SECRET_CODE" value="stem_portal" />
         <env name="DB_URL" value="mongodb+srv://admin:MsKOWFPW64ewMGWK@stem-opportunity-portal.che3a.mongodb.net/STEM-opportunity-portal?retryWrites=true&amp;w=majority" />
       </envs>
       <method v="2" />
@@ -2187,7 +2199,8 @@
       <workItem from="1604507663688" duration="16574000" />
       <workItem from="1604986622140" duration="38072000" />
       <workItem from="1605144401906" duration="6846000" />
-      <workItem from="1605739589438" duration="18676000" />
+      <workItem from="1605739589438" duration="92530000" />
+      <workItem from="1606147120863" duration="24685000" />
     </task>
     <servers />
   </component>
@@ -2207,45 +2220,53 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605740723608">
+    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606100662737">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1605740723608" />
-    <state x="455" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604426859083">
+    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1606100662737" />
+    <state x="455" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606075473132">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="455" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1604426859083" />
-    <state width="1398" height="217" key="GridCell.Tab.0.bottom" timestamp="1605767673795">
+    <state x="455" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1606075473132" />
+    <state x="523" y="343" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606124416074">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="217" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605767673795" />
-    <state width="1398" height="217" key="GridCell.Tab.0.center" timestamp="1605767673793">
+    <state x="523" y="343" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877@0.23.1440.877" timestamp="1606124416074" />
+    <state x="566" y="214" key="EnvironmentVariablesDialog" timestamp="1606062791677">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="217" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605767673793" />
-    <state width="1398" height="217" key="GridCell.Tab.0.left" timestamp="1605767673792">
+    <state x="566" y="214" key="EnvironmentVariablesDialog/0.23.1440.877@0.23.1440.877" timestamp="1606062791677" />
+    <state width="1245" height="238" key="GridCell.Tab.0.bottom" timestamp="1606290960590">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="217" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605767673792" />
-    <state width="1398" height="217" key="GridCell.Tab.0.right" timestamp="1605767673794">
+    <state width="1245" height="238" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1606290960590" />
+    <state width="1245" height="238" key="GridCell.Tab.0.center" timestamp="1606290960589">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="217" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605767673794" />
+    <state width="1245" height="238" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1606290960589" />
+    <state width="1245" height="238" key="GridCell.Tab.0.left" timestamp="1606290960588">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1245" height="238" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1606290960588" />
+    <state width="1245" height="238" key="GridCell.Tab.0.right" timestamp="1606290960589">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1245" height="238" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1606290960589" />
     <state x="291" y="59" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605121277331">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="291" y="59" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877@0.23.1440.877" timestamp="1605121277331" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1604426158200">
+    <state width="600" height="428" key="javadoc.popup" timestamp="1606118545886">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="600" height="428" key="javadoc.popup/0.23.1440.877@0.23.1440.877" timestamp="1604426158200" />
+    <state width="600" height="428" key="javadoc.popup/0.23.1440.877@0.23.1440.877" timestamp="1606118545886" />
     <state x="385" y="210" key="run.anything.popup" timestamp="1604987344756">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1604987344756" />
-    <state x="382" y="203" width="670" height="676" key="search.everywhere.popup" timestamp="1604415687597">
+    <state x="382" y="203" width="670" height="676" key="search.everywhere.popup" timestamp="1606125091737">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="382" y="203" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1604415687597" />
+    <state x="382" y="203" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1606125091737" />
   </component>
 </project>
