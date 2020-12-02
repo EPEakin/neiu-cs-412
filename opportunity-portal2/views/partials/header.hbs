@@ -14,47 +14,46 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    <a id="add" class="nav-link js-scroll-trigger " href="/opportunities/add"> Add An Opportunity</a>
-                </li>
-                <li>
-                    <a id="viewAll" class="nav-link js-scroll-trigger" href="/opportunities/view_all"> All Opportunities</a>
-                </li>
-                <li>
-                    <a id="register" class="nav-link js-scroll-trigger" href="/users/login"> Log In</a>
-                </li>
-                <li>
-                    <a id="register" class="nav-link js-scroll-trigger" href="/users/register"> Sign up</a>
-                </li>
-            </ul>
+            {{#unless loggedIn}}
+                <ul class="navbar-nav ml-auto">
+                    <li>
+                        <a id="viewAll" class="nav-link js-scroll-trigger" href="/opportunities/view_all"> Current Opportunities</a>
+                    </li>
+                    <li>
+                        <a id="register" class="nav-link js-scroll-trigger" href="/users/login"> Educator Log In</a>
+                    </li>
+                    <li>
+                        <a id="register" class="nav-link js-scroll-trigger" href="/users/register"> Educator Sign up</a>
+                    </li>
+                </ul>
+            {{else}}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a id="viewAll" class="nav-link js-scroll-trigger" href="/opportunities/view_all"> All Opportunities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="viewAll" class="nav-link js-scroll-trigger" href="/opportunities/view_user_opps"> My Opportunities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="add" class="nav-link js-scroll-trigger " href="/opportunities/add"> Add An Opportunity</a>
+                    </li>
+                </ul>
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="logout" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        {{currentUser.fullName}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/users/view_user">Account Info</a>
+                        <a class="dropdown-item" href="/users/logout">Logout</a>
+                        <a class="dropdown-item" href="/users/reset_password">Reset Password</a>
+
+                    </div>
+                </div>
+
+            {{/unless}}
+
         </div>
-
     </nav>
-
-
-<!--
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/"><i data-feather="home"></i> </a>
-        <button class="navbar-toggler" type="button"
-                data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <span class="navbar-text col text-center">{{title}}</span>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a id="about" class="nav-link js-scroll-trigger" href="/opportunities/add"> Add Opportunity</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
- -->
-
-
-
 </header>

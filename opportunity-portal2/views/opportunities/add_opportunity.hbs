@@ -10,19 +10,18 @@
     {{> user_messages}}
 </div>
 
+
 <form method="post" action="/opportunities/save">
     <div class="container-fluid">
+
         <input type="hidden" name="saveMethod"
                value="{{#if isCreate}}create{{else}}update{{/if}}"/>
+
+        <input type="hidden" name="submitter" value="{{currentUser.fullName}}"/>
 
         <div class="form-group">
             <label class="col-form-label font-weight-bold pb-0" for="title">Title: </label>
             <input class="form-control col-sm-10" type="text" name="title" required/> <br/>
-        </div>
-
-        <div class="form-group">
-            <label class="col-form-label font-weight-bold pb-0" for="submitter">Submitter Name: </label>
-            <input class="form-control col-sm-4" type="text" name="submitter" required/> <br/>
         </div>
 
         <div class="form-group">
@@ -39,7 +38,7 @@
         <div class="form-group">
             <label class="col-form-label font-weight-bold mb-0 pb-0 " for="oppType"> Type: </label>
             <div class="font-weight-bold ">
-                <select class="form-control col-sm-4" name="oppType" required>
+                <select class="selectpicker form-control col-sm-4" id="add-selector" name="oppType" required>
                     <option>--blank--</option>
                     <option>Internship</option>
                     <option>Volunteer Opportunity</option>

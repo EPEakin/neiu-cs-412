@@ -4,15 +4,7 @@ let Opp = require('../models/opportunities').Opp
 const {oppValidations, oppController} = require('../controllers/opportunities-controller')
 
 router.get('/add', async (req, res, next) => {
-
-        res.render('opportunities/add_opportunity', {
-            isCreate: true,
-            layout: 'default',
-            title: 'Add an opportunity',
-            pageTitle: 'Add a new opportunity here!',
-            isAddActive: "active"
-        })
-
+    await oppController.add(req, res, next)
 })
 
 router.get('/edit', async (req, res, next) => {
@@ -21,18 +13,7 @@ router.get('/edit', async (req, res, next) => {
 })
 
 router.post('/save', oppValidations, async (req, res, next) => {
-    try{
-        if(req.body.saveMethod === 'create') {
-            await oppController.create(req, res, next)
-        }
-        else{
-            await oppController.update(req, res, next)
-        }
-
-    }catch(err){
-        next(err)
-    }
-
+    await oppController.save(req, res, next)
 })
 
 router.post('/destroy', async (req, res, next) => {
@@ -46,20 +27,17 @@ router.post('/destroy', async (req, res, next) => {
     }
 })
 
-
-
 router.get('/view', async (req, res, next) => {
-
     await oppController.view(req, res, next)
-
-
 })
+
 router.get('/view_all', async function(req, res, next) {
-
     await oppController.view_all(req, res, next)
-
 })
 
+router.get('/view_user_opps', async function(req, res, next) {
+    await oppController.view_user_opps(req, res, next)
+})
 
 function extractOppsToLiteral(allOpps){
     return allOpps.map(opp => {

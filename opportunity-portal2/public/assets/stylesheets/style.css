@@ -45,8 +45,8 @@ h2, h3 {
 .btn{
   background-color: darkblue;
   color: white;
-
 }
+
 
 .form-group{
   margin-bottom: auto;
@@ -55,3 +55,29 @@ h2, h3 {
 .modal-title{
   text-align: left;
 }
+
+#logout{
+  color: antiquewhite;
+  background-color: #343a40;
+  min-width: 130px;
+}
+
+.bootstrap-select > .btn.dropdown-toggle.btn-light {
+  background-color: lightgrey;
+  color: black;
+  border-color: lightgrey;
+}
+
+.bootstrap-select > .dropdown-item.active, .dropdown-item.active{
+  color: white;
+  background-color: blue;
+  border-color: darkblue;
+}
+
+.bootstrap-select > .dropdown-item.hover, .dropdown-item:hover{
+  color: white;
+  background-color: dimgrey;
+  border-color: dimgrey;
+}
+
+
