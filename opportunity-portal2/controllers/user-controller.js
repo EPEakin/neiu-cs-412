@@ -1,4 +1,5 @@
-let User = require('../models/user').User
+const User = require('../models/user').User
+const Opp = require('../models/opportunities').Opp
 const {body, validationResult} = require('express-validator')
 const mongoose = require('mongoose')
 const passport = require('passport')
@@ -13,10 +14,8 @@ exports.userController = {
             res.redirect('/users/register')
         }else{
             try{
-                console.log('in Create User: ', req.body)
                 let userParams = getUserParams(req.body)
                 let newUser = new User(userParams)
-                console.log('in Create User- newUser: ', newUser)
                 let user = await User.register(newUser, req.body.password)
                 req.flash('success', `${user.fullName}'s account created successfully!`)
                 res.redirect('/users/login')
@@ -24,6 +23,48 @@ exports.userController = {
                 console.log(`Error saving user: ${error.message}`)
                 req.flash('error', `Failed to create user account. Invalid email.`)
                 res.redirect('back')
+            }
+        }
+    },
+
+    edit_info: async (req, res, next) => {
+        if (req.isAuthenticated()) {
+            try{
+                const user = await User.findOne({_id: req.user.id.trim()})
+                res.render('users/edit_user', {
+                    title: "Account Update",
+                    pageTitle: "Edit your information",
+                    id: req.user.id,
+                    school: user.school,
+                    subject: user.subjectArea,
+                    layout: 'default'})
+            }catch(error){
+                next(error)
+            }
+        }
+        else{
+            req.flash('error', 'Please log in to edit user information!')
+            res.redirect('/users/login')
+        }
+    },
+
+    update_info: async (req, res, next) => {
+        const errors = validationResult(req)
+        if(!errors.isEmpty()){
+            req.flash('error', errors.array().map(e => e.msg + '</br>').join(''))
+            res.redirect('/users/edit_info?id=' + req.user.id)
+        }else {
+            try {
+                const user = await User.findOneAndUpdate({_id: req.user.id}, {
+                    school: req.body.school,
+                    subjectArea: req.body.subject
+                })
+                req.flash('success', `Your edit has been made!`)
+                res.redirect('/users/view_user?id=' + req.user.id)
+            } catch (error) {
+                console.log(`Error updating user information: ${error.message}`)
+                req.flash('error', `Your edit didn't go through because: ${error.message} </br>`)
+                res.redirect('/users/edit_user?id=' + req.user.id)
             }
         }
     },
@@ -117,6 +158,33 @@ exports.userController = {
             req.flash('error', 'Please log in to view user info!')
             res.redirect('/users/login')
         }
+    },
+
+    destroy: async (req, res, next) => {
+        if (req.isAuthenticated()) {
+            try {
+                const user = await User.find({_id: req.user.id})
+                await Opp.deleteMany({submitterId: req.user.id}).then(function(){
+                }).catch(function(error){
+                    console.log(error)
+                })
+
+               if (user)
+                    await User.findOneAndDelete({_id: req.user.id})
+                else
+                    throw new Error(`In Destroy: User ${req.user.id} does not exist`)
+
+                req.flash('success', 'User account has been deleted')
+                res.redirect('/')
+            } catch (error) {
+                req.flash('error', 'Error: User account not deleted')
+                res.redirect('/')
+                console.log(`Error deleting user ${req.user.id}`)
+            }
+        } else {
+            req.flash('error', 'Please log in to edit or delete your user account!')
+            res.redirect('/users/login')
+        }
     }
 }
 
@@ -170,4 +238,13 @@ exports.resetPasswordValidations = [
         }),
     body('email')
         .isEmail().normalizeEmail().withMessage('Email is invalid')
+]
+
+exports.updateInfoValidations = [
+    body('school')
+        .notEmpty().withMessage('The name of your school is required')
+        .isLength({min:2}).withMessage('School name must be at least 2 characters'),
+    body('subject')
+        .notEmpty().withMessage('A subject area is required')
+        .isLength({min:2}).withMessage('Subject area name must be at least 2 characters')
 ]

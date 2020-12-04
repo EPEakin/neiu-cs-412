@@ -3,6 +3,8 @@ const User = require('../models/user').User
 const {body, validationResult} = require('express-validator')
 const mongoose = require('mongoose')
 const {DateTime} = require('luxon')
+const array = require('lodash/array')
+
 
 exports.oppController = {
     save: async (req, res, next) => {
@@ -54,6 +56,7 @@ exports.oppController = {
                     oppSubmitter: opp.submitter,
                     oppType: opp.oppType,
                     oppLoc: opp.oppLoc,
+                    oppWebsite: opp.website,
                     layout: 'default'})
             }catch(error){
                 next(error)
@@ -68,7 +71,12 @@ exports.oppController = {
     view: async (req, res, next) => {
         try{
             const opp = await Opp.findOne({_id:req.query.id.trim()})
-            console.log('IN VIEW: date is ', DateTime.fromJSDate(opp.dateDue).toISODate())
+            let isSubmitter = false;
+            if (req.isAuthenticated()) {
+                if (`${opp.submitterId}` === req.user.id) {
+                    isSubmitter = true
+                }
+            }
             res.render('opportunities/view_opportunity', {
                 title: "View Opportunity",
                 pageTitle: "Opportunity Details",
@@ -76,9 +84,11 @@ exports.oppController = {
                 oppTitle: opp.title,
                 oppId: opp.id,
                 oppDescription: opp.description,
-                oppDateDue: DateTime.fromJSDate(opp.dateDue).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY),
+                oppDateDue: DateTime.fromJSDate(opp.dateDue).plus({days: 1}).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY),
                 oppType: opp.oppType,
                 oppLoc: opp.oppLoc,
+                oppWebsite: opp.website,
+                isSubmitter: isSubmitter,
                 layout: 'default'
             })
         }catch(error){
@@ -89,9 +99,7 @@ exports.oppController = {
     view_user_opps: async (req, res, next) => {
         if(req.isAuthenticated()) {
             try{
-                //console.log('in view_user_opps', req.user, req.user.opps)
                 let oppIds = req.user.opps
-                console.log('in view_user_opps: oppIds = ', oppIds)
                 let oppPromises = oppIds.map(id => Opp.findOne({_id: id}))
                 let opps = await Promise.all(oppPromises)
 
@@ -99,17 +107,16 @@ exports.oppController = {
                     return {
                         oppId: opp.id,
                         oppTitle: opp.title,
-                        oppDateDue: DateTime.fromJSDate(opp.dateDue).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)
+                        oppDateDue: DateTime.fromJSDate(opp.dateDue).plus({days: 1}).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)
                     }
                 })
 
                 let numCurrentOpps = oppIds.length
-                console.log('In view_user_opps: numCurrentOpps is: ', numCurrentOpps)
                 let oppExists = false
                 if(numCurrentOpps > 0) {oppExists = true}
                 res.render('opportunities/view_user_opportunities', {
-                    title: 'All Current Opportunities',
-                    pageTitle: 'Here are the current STEM Opportunities',
+                    title: 'All Opportunities',
+                    pageTitle: 'Current STEM Opportunities',
                     numCurrentOpps: numCurrentOpps,
                     oppExists: oppExists,
                     layout: 'default',
@@ -129,25 +136,23 @@ exports.oppController = {
                 return {
                     oppId: opp.id,
                     oppTitle: opp.title,
-                    oppDateDue: DateTime.fromJSDate(opp.dateDue).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)
+                    oppDateDue: DateTime.fromJSDate(opp.dateDue).plus({days: 1}).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY)
                 }
             })
 
             let numCurrentOpps = await Opp.countDocuments({})
-            console.log('In View-all: numCurrentOpps is: ', numCurrentOpps)
             let oppExists = false
             if(numCurrentOpps > 0) {oppExists = true}
+
             res.render('opportunities/view_all_opportunities', {
                 title: 'All Current Opportunities',
-                pageTitle: 'Here are the current STEM Opportunities',
+                pageTitle: 'Current STEM Opportunities',
                 numCurrentOpps: numCurrentOpps,
                 oppExists: oppExists,
-                //oppExists: true,
                 layout: 'default',
                 oppList: allOpps,
                 isViewAllActive: "active"
             })
-
         } catch(err){
             next(err)
         }
@@ -156,15 +161,21 @@ exports.oppController = {
     destroy: async (req, res, next) => {
         if (req.isAuthenticated()) {
             try{
-                console.log('IN DESTROY: id is', req.body)
                 const opp = await Opp.find({_id: req.body.id})
-                console.log('IN DESTROY: opp id is', opp.id)
 
+                let newOpps = req.user.opps
+                newOpps = array.remove(newOpps, function(n){
+                    return n != req.body.id
+                })
+                const user = await User.findOneAndUpdate({_id: req.user.id}, {
+                    opps: newOpps
+                })
                 if (opp)
                     await Opp.findOneAndDelete({_id: req.body.id})
                 else
                     throw new Error(`In Destroy: Opportunity ${req.body.id} does not exist`)
 
+                req.flash('success', 'Opportunity successfully deleted')
                 res.redirect('/opportunities/view_all')
             }catch(error){
                 console.log(`Error deleting opportunity ${req.body.id}`)
@@ -174,7 +185,6 @@ exports.oppController = {
             req.flash('error', 'Please log in to delete opportunities!')
             res.redirect('/users/login')
         }
-
     }
 }
 
@@ -208,21 +218,18 @@ const update = async (req, res, next) => {
     }else {
         let testType = req.body.oppType
         let testLoc = req.body.oppLoc
-        console.log('IN UPDATE: req.body.oppType', req.body.oppType, ' testType: ', testType)
-        console.log('IN UPDATE: req.body.oppLoc', req.body.oppLoc, ' testLoc: ', testLoc)
 
         if(req.body.oppType === "")
         {
             const set = await Opp.findOne({_id: req.body.id})
             testType = set.oppType
         }
+
         if(typeof testLoc === 'undefined')
         {
             const setLoc = await Opp.findOne({_id: req.body.id})
             testLoc = setLoc.oppLoc
         }
-        console.log('IN UPDATE2: req.body.oppType', req.body.oppType, ' testType: ', testType)
-        console.log('IN UPDATE2: req.body.oppLoc', req.body.oppLoc, ' testLoc: ', testLoc)
 
         try {
             const opp = await Opp.findOneAndUpdate({_id: req.body.id}, {
@@ -231,7 +238,8 @@ const update = async (req, res, next) => {
                 dateDue: req.body.dateDue,
                 submitter: req.body.submitter,
                 oppType: testType,
-                oppLoc: testLoc
+                oppLoc: testLoc,
+                website: req.body.website
             })
             req.flash('success', `Your edit has been made!`)
             res.redirect('/opportunities/view?id=' + req.body.id)
@@ -250,7 +258,9 @@ const getOpp = (body) => {
         dateDue: body.dateDue,
         submitter: body.submitter.trim(),
         oppType: body.oppType,
-        oppLoc: body.oppLoc
+        oppLoc: body.oppLoc,
+        website: body.website,
+        submitterId: body.submitterId
     })
 }
 
@@ -267,9 +277,5 @@ exports.oppValidations = [
     body('submitter')
         .notEmpty().withMessage('Last name is required')
         .isLength({min:2}).withMessage('Last name must be at least 2 characters'),
-   /* body('oppType')
-        .notEmpty().withMessage('Opportunity type is required'),*/
-   /* body('oppLoc')
-        .notEmpty().withMessage('Location is required')*/
 ]
 

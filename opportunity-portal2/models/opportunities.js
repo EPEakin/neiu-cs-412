@@ -10,12 +10,11 @@ exports.AbstractOppStore = class AbstractOppStore {
 }
 
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const SchemaTypes = mongoose.SchemaTypes
+const passportLocalMongoose = require('passport-local-mongoose')
+const User = require('../models/user').User
 const OppSchema = new mongoose.Schema({
-    /*key:{
-        type: Number,
-        required: true,
-        unique: true
-    },*/
     title:{
         type: String,
         required: [true, 'A title for the opportunity is required.'],
@@ -40,6 +39,13 @@ const OppSchema = new mongoose.Schema({
     oppLoc:{
         type: String,
         required: [true, 'Please indicate whether this opportunity is virtual or in-person']
+    },
+    website:{
+        type: String
+    },
+    submitterId:{
+        type: SchemaTypes.ObjectID,
+        ref: 'User'
     }
 })
 

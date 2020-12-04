@@ -33,14 +33,16 @@
       <change afterPath="$PROJECT_DIR$/routes/opportunities.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/opportunities/add_opportunity.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/opportunities/delete_opportunity.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/opportunities/edit_opportunity.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/opportunities/view_all_opportunities.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/opportunities/view_opportunity.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/opportunities/view_user_opportunities.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/copyright_footer.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/partials/header.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/partials/user_messages.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/partials/view_footer.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/view_user_footer.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/users/edit_user.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/users/login.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/users/register.hbs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/users/reset_password.hbs" afterDir="false" />
@@ -2203,7 +2205,7 @@
       <workItem from="1605144401906" duration="6846000" />
       <workItem from="1605739589438" duration="92530000" />
       <workItem from="1606147120863" duration="34608000" />
-      <workItem from="1606373115275" duration="50094000" />
+      <workItem from="1606373115275" duration="90141000" />
     </task>
     <servers />
   </component>
@@ -2223,10 +2225,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606756130528">
+    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606973466788">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1606756130528" />
+    <state x="181" y="103" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1606973466788" />
     <state x="455" y="195" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606075473132">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -2239,22 +2241,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="566" y="214" key="EnvironmentVariablesDialog/0.23.1440.877@0.23.1440.877" timestamp="1606062791677" />
-    <state width="1086" height="291" key="GridCell.Tab.0.bottom" timestamp="1606930583902">
+    <state width="1246" height="291" key="GridCell.Tab.0.bottom" timestamp="1607068844846">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1086" height="291" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1606930583902" />
-    <state width="1086" height="291" key="GridCell.Tab.0.center" timestamp="1606930583901">
+    <state width="1246" height="291" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1607068844846" />
+    <state width="1246" height="291" key="GridCell.Tab.0.center" timestamp="1607068844845">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1086" height="291" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1606930583901" />
-    <state width="1086" height="291" key="GridCell.Tab.0.left" timestamp="1606930583900">
+    <state width="1246" height="291" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1607068844845" />
+    <state width="1246" height="291" key="GridCell.Tab.0.left" timestamp="1607068844843">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1086" height="291" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1606930583900" />
-    <state width="1086" height="291" key="GridCell.Tab.0.right" timestamp="1606930583902">
+    <state width="1246" height="291" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1607068844843" />
+    <state width="1246" height="291" key="GridCell.Tab.0.right" timestamp="1607068844846">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1086" height="291" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1606930583902" />
+    <state width="1246" height="291" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1607068844846" />
     <state x="291" y="59" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605121277331">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

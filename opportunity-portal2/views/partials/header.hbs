@@ -1,5 +1,4 @@
 <header>
-
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark border">
         <a class="navbar-brand" href="/"><i data-feather="home"></i></a>
 
@@ -13,6 +12,7 @@
             aria-expanded="false" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{#unless loggedIn}}
                 <ul class="navbar-nav ml-auto">
@@ -20,10 +20,24 @@
                         <a id="viewAll" class="nav-link js-scroll-trigger" href="/opportunities/view_all"> Current Opportunities</a>
                     </li>
                     <li>
-                        <a id="register" class="nav-link js-scroll-trigger" href="/users/login"> Educator Log In</a>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="register" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"> Sign Up
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/users/register">Educator </a>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <a id="register" class="nav-link js-scroll-trigger" href="/users/register"> Educator Sign up</a>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="login" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"> Log In
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/users/login">Educator</a>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             {{else}}
@@ -51,9 +65,7 @@
 
                     </div>
                 </div>
-
             {{/unless}}
-
         </div>
     </nav>
 </header>

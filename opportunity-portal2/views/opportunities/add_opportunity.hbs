@@ -1,3 +1,6 @@
+<div class="container-fluid m-2">
+    {{> user_messages}}
+</div>
 
 <div class="container-fluid">
     <div class="mx-auto pb-4">
@@ -6,11 +9,6 @@
     </div>
 </div>
 
-<div class="container-fluid m-2">
-    {{> user_messages}}
-</div>
-
-
 <form method="post" action="/opportunities/save">
     <div class="container-fluid">
 
@@ -18,6 +16,7 @@
                value="{{#if isCreate}}create{{else}}update{{/if}}"/>
 
         <input type="hidden" name="submitter" value="{{currentUser.fullName}}"/>
+        <input type="hidden" name="submitterId" value="{{currentUser.id}}"/>
 
         <div class="form-group">
             <label class="col-form-label font-weight-bold pb-0" for="title">Title: </label>
@@ -36,6 +35,11 @@
         </div>
 
         <div class="form-group">
+            <label class="col-form-label font-weight-bold pb-0" for="website">Website: <em>(if applicable)</em> </label>
+            <input class="form-control col-sm-10" type="text" name="website"/> <br/>
+        </div>
+
+        <div class="form-group">
             <label class="col-form-label font-weight-bold mb-0 pb-0 " for="oppType"> Type: </label>
             <div class="font-weight-bold ">
                 <select class="selectpicker form-control col-sm-4" id="add-selector" name="oppType" required>
@@ -47,6 +51,7 @@
                     <option>Club or Ongoing Activity</option>
                     <option>Contest</option>
                     <option>Award</option>
+                    <option>Summer Enrichment</option>
                 </select>
             </div>
         </div>
@@ -67,12 +72,10 @@
             </div>
         </div>
 
-
         <div class="form-group row justify-content-center pt-3" >
             <input id="submit-bar" class="col-xs-3 btn btn-primary" type="submit" value="Submit"/>
         </div>
 
     </div>
-
 </form>
 

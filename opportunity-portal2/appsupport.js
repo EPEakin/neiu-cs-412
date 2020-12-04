@@ -1,7 +1,3 @@
-/**
- * Normalize a port into a number, string, or false.
- */
-
 exports.normalizePort = function (val) {
     const port = parseInt(val, 10);
 
@@ -19,22 +15,15 @@ exports.handle404 = function (req, res, next) {
 }
 
 exports.basicErrorHandler = function(err, req, res, next) {
-    //defer to built-in error handler if headersSent
     if(res.headersSent)
         return next(err)
 
-    // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
     res.status(err.status || 500);
     res.render('error');
 }
-
-/**
- * Event listener for HTTP server "error" event.
- */
 
 exports.onError = function (error) {
     let port = require('./app').port
@@ -46,7 +35,6 @@ exports.onError = function (error) {
         ? 'Pipe ' + port
         : 'Port ' + port;
 
-    // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
             console.error(bind + ' requires elevated privileges');
@@ -60,10 +48,6 @@ exports.onError = function (error) {
             throw error;
     }
 }
-
-/**
- * Event listener for HTTP server "listening" event.
- */
 
 exports.onListening = function () {
     let server = require('./app').server

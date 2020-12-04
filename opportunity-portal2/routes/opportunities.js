@@ -52,5 +52,4 @@ function extractOppsToLiteral(allOpps){
     })
 }
 
-
 module.exports = router

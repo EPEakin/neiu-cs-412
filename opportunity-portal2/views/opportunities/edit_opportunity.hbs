@@ -13,16 +13,12 @@
     <input type="hidden" name="saveMethod"
            value="{{#if isCreate}}create{{else}}update{{/if}}"/>
     <input type="hidden" name="id" value="{{oppId}}"/>
+    <input type="hidden" name="submitter" value="{{oppSubmitter}}"/>
 
     <div class="container-fluid">
         <div class="form-group">
             <label class="col-form-label font-weight-bold pb-0" for="title">Title: </label>
             <input class="form-control col-sm-10" type="text" name="title" value="{{oppTitle}}"/> <br/>
-        </div>
-
-        <div class="form-group">
-            <label class="col-form-label font-weight-bold pb-0" for="submitter">Submitter Name: </label>
-            <input class="form-control col-sm-4" type="text" name="submitter" value="{{oppSubmitter}}"/> <br/>
         </div>
 
         <div class="form-group">
@@ -37,6 +33,11 @@
         </div>
 
         <div class="form-group">
+            <label class="col-form-label font-weight-bold pb-0" for="website">Website: <em>(if applicable)</em> </label>
+            <input class="form-control col-sm-10" type="text" name="website" value="{{oppWebsite}}"/> <br/>
+        </div>
+
+        <div class="form-group">
             <label class="col-form-label font-weight-bold mb-0 pb-0" for="oppType"> Type: </label>
             <div class="font-weight-normal">
                 <select class="selectpicker form-control col-sm-4" id="edit-selector" title="{{oppType}}" name="oppType" value="{{oppType}}">
@@ -48,6 +49,7 @@
                     <option>Club or Ongoing Activity</option>
                     <option>Contest</option>
                     <option>Award</option>
+                    <option>Summer Enrichment</option>
                 </select>
             </div>
         </div>

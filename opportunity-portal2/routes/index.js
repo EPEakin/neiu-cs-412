@@ -3,12 +3,11 @@ const router = express.Router();
 const oppStore = require('../app').oppStore
 
 let options = {
-  title: 'STEM Opportunity Portal!',
-  pageTitle: 'Welcome to the STEM Opportunity Portal!',
+  title: 'Explore STEM!',
+  pageTitle: 'STEM Opportunity Portal',
   layout: 'default',
   isHomeActive: "active"
 }
-
 
 router.get('/', async function(req, res, next) {
   try{

@@ -19,12 +19,6 @@ mongoose.connect(process.env.DB_URL, {
     console.log(err)
 })
 
-
-/*const MongooseOppStore = require('./models/opportunities-mongoose').MongooseOppStore
-let oppStore = new MongooseOppStore()
-exports.oppStore = oppStore*/
-
-
 const appsupport = require('./appsupport')
 const indexRouter = require('./routes/index')
 const oppRouter = require('./routes/opportunities')
@@ -69,6 +63,7 @@ app.use('/assets/vendor/bootstrap-select', express.static(path.join(__dirname, '
 app.use('/assets/vendor/jquery', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')))
 app.use('/assets/vendor/popper.js', express.static(path.join(__dirname, 'node_modules', 'popper.js', 'dist', 'umd')))
 app.use('/assets/vendor/feather-icons', express.static(path.join(__dirname, 'node_modules', 'feather-icons', 'dist')))
+app.use('/assets/vendor/mdbootstrap/', express.static(path.join(__dirname, 'node_modules', 'mdbootstrap')))
 
 app.use((req,res,next) =>{
     res.locals.loggedIn = req.isAuthenticated()
